@@ -10,7 +10,7 @@
     <Button
         android:id="@+id/btnVerified"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_conttent"
         android:text="I have already verified" />
 
     <Button
