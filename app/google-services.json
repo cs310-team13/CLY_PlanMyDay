@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "597632415450",
+    "project_id": "cs310-fa23-cly",
+    "storage_bucket": "cs310-fa23-cly.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597632415450:android:eea17525ad2a10178b97e3",
+        "android_client_info": {
+          "package_name": "com.example.planmyday"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD132xY-7Ua1z97tdc1ftCqN3mvqtArHxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
