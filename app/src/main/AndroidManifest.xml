@@ -27,6 +27,10 @@
         <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".VerificationActivity"></activity>
         <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".USCActivity"></activity>
+        <activity android:name=".LosAngelesActivity"></activity>
+        <activity android:name=".DaySelectionActivity"></activity>
+        <activity android:name=".DayPlannerActivity"></activity>
 
     </application>
 </manifest>

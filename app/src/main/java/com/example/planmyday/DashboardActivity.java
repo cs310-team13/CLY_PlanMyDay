@@ -13,6 +13,27 @@ public class DashboardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        Button LAButton = findViewById(R.id.LAButton);
+        LAButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the Los Angeles activity
+                Intent intent = new Intent(DashboardActivity.this, LosAngelesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button USCButton = findViewById(R.id.USCButton);
+        USCButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the USC activity
+                Intent intent = new Intent(DashboardActivity.this, USCActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button logoutButton = findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

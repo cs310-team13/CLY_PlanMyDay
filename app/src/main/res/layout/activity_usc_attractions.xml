@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    tools:context=".USCActivity">
+
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/usc_attractions"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Vertical LinearLayout for checkboxes -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/heading">
+
+        <CheckBox
+            android:id="@+id/checkBoxAnnenberg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/annenberg_school_of_communication_and_journalism" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDoheny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/doheny_memorial_library" />
+
+        <CheckBox
+            android:id="@+id/checkBoxGwynnWilson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gwynn_wilson_student_union" />
+
+        <CheckBox
+            android:id="@+id/checkBoxKDC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kaufman_international_dance_center" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLeavey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/leavey_library" />
+
+        <CheckBox
+            android:id="@+id/checkBoxMudd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mudd_hall_of_philosophy" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/physical_education_building" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSalvatori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/salvatori_computer_science_center" />
+
+        <CheckBox
+            android:id="@+id/checkBoxTaper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/taper_hall_of_humanities" />
+
+        <CheckBox
+            android:id="@+id/checkBoxTommyTrojan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tommy_trojan" />
+
+        <CheckBox
+            android:id="@+id/checkBoxTravelerHorse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/traveler_the_horse" />
+
+
+        <CheckBox
+            android:id="@+id/checkBoxUSCBookstore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usc_bookstore" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/linearLayout"/>
+
+</RelativeLayout>

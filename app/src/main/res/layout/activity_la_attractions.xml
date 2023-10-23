@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    tools:context=".USCActivity">
+
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/los_angeles_attractions"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Vertical LinearLayout for checkboxes -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/heading">
+
+        <CheckBox
+            android:id="@+id/checkBoxCrypto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crypto_com_arena" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDisney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disneyland_park" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDodgers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dodgers_stadium" />
+
+        <CheckBox
+            android:id="@+id/checkBoxGriffith"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/griffith_observatory" />
+
+        <CheckBox
+            android:id="@+id/checkBoxHollywood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hollywood_sign" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLAMOA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/los_angeles_county_museum_of_art" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSantaMonica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/santa_monica_pier" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBroad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/the_broad" />
+
+        <CheckBox
+            android:id="@+id/checkBoxGetty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/the_getty" />
+
+        <CheckBox
+            android:id="@+id/checkBoxGrove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/the_grove" />
+
+        <CheckBox
+            android:id="@+id/checkBoxUniversal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/universal_studios_hollywood" />
+
+        <CheckBox
+            android:id="@+id/checkBoxVenice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Venice Beach" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/linearLayout"/>
+
+</RelativeLayout>
