@@ -27,78 +27,257 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/heading">
 
-        <CheckBox
-            android:id="@+id/checkBoxAnnenberg"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/annenberg_school_of_communication_and_journalism" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkBoxDoheny"
-            android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/checkbox_Annenberg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/annenberg_school_of_communication" />
+
+            <ImageView
+                android:id="@+id/icon_Annenberg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/doheny_memorial_library" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkBoxGwynnWilson"
-            android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/checkbox_Doheny"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/doheny_memorial_library" />
+
+            <ImageView
+                android:id="@+id/icon_Doheny"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/gwynn_wilson_student_union" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkBoxKDC"
-            android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/checkbox_GW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gwynn_wilson_student_union" />
+
+            <ImageView
+                android:id="@+id/icon_GW"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/kaufman_international_dance_center" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkBoxLeavey"
-            android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/checkbox_KDC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kaufman_international_dance_center" />
+
+            <ImageView
+                android:id="@+id/icon_KDC"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/leavey_library" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkBoxMudd"
-            android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/checkbox_Leavey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/leavey" />
+
+            <ImageView
+                android:id="@+id/icon_Leavey"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mudd_hall_of_philosophy" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkBoxPE"
-            android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/checkbox_Mudd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mudd_hall_of_philosophy" />
+
+            <ImageView
+                android:id="@+id/icon_Mudd"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/physical_education_building" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkBoxSalvatori"
+            <CheckBox
+                android:id="@+id/checkbox_PE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/physical_education_building" />
+
+            <ImageView
+                android:id="@+id/icon_PE"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <CheckBox
+            android:id="@+id/checkbox_SAL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/salvatori_computer_science_center" />
 
-        <CheckBox
-            android:id="@+id/checkBoxTaper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/taper_hall_of_humanities" />
+            <ImageView
+                android:id="@+id/icon_SAL"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
 
-        <CheckBox
-            android:id="@+id/checkBoxTommyTrojan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tommy_trojan" />
+        </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/checkBoxTravelerHorse"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/traveler_the_horse" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
+            <CheckBox
+                android:id="@+id/checkbox_THH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/taper_hall_of_humanities" />
 
-        <CheckBox
-            android:id="@+id/checkBoxUSCBookstore"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/icon_THH"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/usc_bookstore" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox_Tommy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tommy_trojan" />
+
+            <ImageView
+                android:id="@+id/icon_Tommy"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox_Traveler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/traveler_the_horse" />
+
+            <ImageView
+                android:id="@+id/icon_Traveler"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox_Bookstore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/usc_bookstore" />
+
+            <ImageView
+                android:id="@+id/icon_Bookstore"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/more_info"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -108,6 +287,15 @@
         android:layout_height="wrap_content"
         android:text="@string/submit"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/linearLayout"/>
+        android:layout_below="@id/linearLayout"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Add an ImageView for the image popup (hidden initially) -->
+    <ImageView
+        android:id="@+id/popup_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"/>
 
 </RelativeLayout>
