@@ -43,15 +43,15 @@ public class DaySelectionActivity extends Activity {
                 // Retrieve the ArrayList of strings stored in the Intent
                 Intent intent = getIntent();
                 // either one of these does not exist because user can only choose one between USC and LA
-                ArrayList<String> USCAttractions = intent.getStringArrayListExtra("USCAttractions");
-                ArrayList<String> LAAttractions = intent.getStringArrayListExtra("LAAttractions");
+                ArrayList<Attraction> USCAttractions = intent.getParcelableArrayListExtra("USCAttractions");
+                ArrayList<Attraction> LAAttractions = intent.getParcelableArrayListExtra("LAAttractions");
 
                 Intent dayPlannerIntent = new Intent(DaySelectionActivity.this, DayPlannerActivity.class);
                 // not sure if this works, Clark better checks!!!
                 if (USCAttractions != null) {
-                    dayPlannerIntent.putStringArrayListExtra("attractions", USCAttractions);
+                    dayPlannerIntent.putParcelableArrayListExtra("attractions", USCAttractions);
                 } else if (LAAttractions != null) {
-                    dayPlannerIntent.putStringArrayListExtra("attractions", LAAttractions);
+                    dayPlannerIntent.putParcelableArrayListExtra("attractions", LAAttractions);
                 }
                 startActivity(dayPlannerIntent);
             }

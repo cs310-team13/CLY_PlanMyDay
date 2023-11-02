@@ -67,44 +67,44 @@ public class LosAngelesActivity extends Activity {
 
         submitButton.setOnClickListener(v -> {
             // Create an ArrayList to store selected attractions
-            ArrayList<String> LAAttractions = new ArrayList<>();
+            ArrayList<Attraction> LAAttractions = new ArrayList<>();
 
             // Check each checkbox and add the selected attractions to the list
             if (checkbox_Crypto.isChecked()) {
-                LAAttractions.add("Crypto.com Arena");
+                LAAttractions.add(new Attraction("Crypto.com Arena", 34.043239725397534, -118.26715754465302));
             }
             if (checkbox_Disney.isChecked()) {
-                LAAttractions.add("Disneyland Park");
+                LAAttractions.add(new Attraction("Disneyland Park", 33.812323543075266, -117.91904930604437));
             }
             if (checkbox_Dodgers.isChecked()) {
-                LAAttractions.add("Dodgers Stadium");
+                LAAttractions.add(new Attraction("Dodgers Stadium", 34.07409980507749, -118.2400012195226));
             }
             if (checkbox_Griffith.isChecked()) {
-                LAAttractions.add("Griffith Observatory");
+                LAAttractions.add(new Attraction("Griffith Observatory",34.118567305842724, -118.30037204650294));
             }
             if (checkbox_Hollywood.isChecked()) {
-                LAAttractions.add("Hollywood Sign");
+                LAAttractions.add(new Attraction("Hollywood Sign", 34.134332141812706, -118.3215692658123));
             }
             if (checkbox_LACMA.isChecked()) {
-                LAAttractions.add("Los Angeles County Museum of Art");
+                LAAttractions.add(new Attraction("Los Angeles County Museum of Art", 34.06416335844787, -118.35920784650568));
             }
             if (checkbox_SMP.isChecked()) {
-                LAAttractions.add("Santa Monica Pier");
+                LAAttractions.add(new Attraction("Santa Monica Pier", 34.0084706308887, -118.49875101293324));
             }
             if (checkbox_Broad.isChecked()) {
-                LAAttractions.add("The Broad");
+                LAAttractions.add(new Attraction("The Broad", 34.0546620731521, -118.2501587465062));
             }
             if (checkbox_Getty.isChecked()) {
-                LAAttractions.add("The Getty");
+                LAAttractions.add(new Attraction("The Getty", 34.078124637386516, -118.47403103115997));
             }
             if (checkbox_Grove.isChecked()) {
-                LAAttractions.add("The Grove");
+                LAAttractions.add(new Attraction("The Grove", 34.07672370541953, -118.35865922045846));
             }
             if (checkbox_Universal.isChecked()) {
-                LAAttractions.add("Universal Studios Hollywood");
+                LAAttractions.add(new Attraction("Universal Studios Hollywood", 34.13823221460428, -118.35322810046722));
             }
             if (checkbox_Venice.isChecked()) {
-                LAAttractions.add("Venice Beach");
+                LAAttractions.add(new Attraction("Venice Beach", 33.99415852939198, -118.4810175097266));
             }
 
             if (LAAttractions.isEmpty()) {
@@ -113,7 +113,7 @@ public class LosAngelesActivity extends Activity {
             } else {
                 // At least one attraction is selected, proceed to the next activity
                 Intent intent = new Intent(LosAngelesActivity.this, DaySelectionActivity.class);
-                intent.putStringArrayListExtra("LAAttractions", LAAttractions);
+                intent.putParcelableArrayListExtra("LAAttractions", LAAttractions);
                 startActivity(intent);
             }
         });
