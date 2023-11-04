@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import org.w3c.dom.Attr;
 
 import java.util.ArrayList;
 
@@ -77,40 +74,40 @@ public class USCActivity extends Activity {
 
                 // Check each checkbox and add the selected attractions to the list
                 if (checkbox_Annenberg.isChecked()) {
-                    USCAttractions.add(new Attraction("Annenberg School of Communication and Journalism", 34.02218562673803, -118.28662909068888));
+                    USCAttractions.add(new Attraction("Annenberg School of Communication and Journalism", 34.02218562673803, -118.28662909068888, 15));
                 }
                 if (checkbox_Doheny.isChecked()) {
-                    USCAttractions.add(new Attraction("Doheny Memorial Library", 34.0202798755392, -118.28344664094692));
+                    USCAttractions.add(new Attraction("Doheny Memorial Library", 34.0202798755392, -118.28344664094692, 15));
                 }
                 if (checkbox_GW.isChecked()) {
-                    USCAttractions.add(new Attraction("Gwynn Wilson Student Union", 34.02044478512692, -118.2856320753441));
+                    USCAttractions.add(new Attraction("Gwynn Wilson Student Union", 34.02044478512692, -118.2856320753441, 10));
                 }
                 if (checkbox_KDC.isChecked()) {
-                    USCAttractions.add(new Attraction("Kaufman International Dance Center", 34.02363863169562, -118.2851750176715));
+                    USCAttractions.add(new Attraction("Kaufman International Dance Center", 34.02363863169562, -118.2851750176715, 10));
                 }
                 if (checkbox_Leavey.isChecked()) {
-                    USCAttractions.add(new Attraction("Leavey Library",34.02200494245769, -118.28290370418027));
+                    USCAttractions.add(new Attraction("Leavey Library",34.02200494245769, -118.28290370418027, 20));
                 }
                 if (checkbox_Mudd.isChecked()) {
-                    USCAttractions.add(new Attraction("Mudd Hall of Philosophy", 34.01885284072267, -118.28690133301667));
+                    USCAttractions.add(new Attraction("Mudd Hall of Philosophy", 34.01885284072267, -118.28690133301667, 10));
                 }
                 if (checkbox_PE.isChecked()) {
-                    USCAttractions.add(new Attraction("Physical Education Building", 34.021464112931554, -118.28632943301653));
+                    USCAttractions.add(new Attraction("Physical Education Building", 34.021464112931554, -118.28632943301653, 10));
                 }
                 if (checkbox_SAL.isChecked()) {
-                    USCAttractions.add(new Attraction("Salvatori Computer Science Center", 34.01982252722806, -118.2895047465078));
+                    USCAttractions.add(new Attraction("Salvatori Computer Science Center", 34.01982252722806, -118.2895047465078, 20));
                 }
                 if (checkbox_THH.isChecked()) {
-                    USCAttractions.add(new Attraction("Taper Hall of Humanities", 34.02250407200717, -118.2846244771976));
+                    USCAttractions.add(new Attraction("Taper Hall of Humanities", 34.02250407200717, -118.2846244771976, 10));
                 }
                 if (checkbox_Tommy.isChecked()) {
-                    USCAttractions.add(new Attraction("Tommy Trojan Sculpture", 34.02073972207071, -118.28546826185277));
+                    USCAttractions.add(new Attraction("Tommy Trojan Sculpture", 34.02073972207071, -118.28546826185277, 5));
                 }
                 if (checkbox_Traveler.isChecked()) {
-                    USCAttractions.add(new Attraction("Traveler the Horse Sculpture", 34.020200553164386, -118.28522181952533));
+                    USCAttractions.add(new Attraction("Traveler the Horse Sculpture", 34.020200553164386, -118.28522181952533, 5));
                 }
                 if (checkbox_Bookstore.isChecked()) {
-                    USCAttractions.add(new Attraction("USC Bookstore", 34.020846184075424, -118.28648245999912));
+                    USCAttractions.add(new Attraction("USC Bookstore", 34.020846184075424, -118.28648245999912, 20));
                 }
 
                 if (USCAttractions.isEmpty()) {

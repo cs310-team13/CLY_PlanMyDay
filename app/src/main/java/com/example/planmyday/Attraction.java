@@ -2,49 +2,59 @@ package com.example.planmyday;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 public class Attraction implements Parcelable {
     private String name;
     private double longitude;
     private double latitude;
+    private int time;
 
-    public Attraction(String name, double longitude, double latitude) {
+    public Attraction(String name, double longitude, double latitude, int time) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.time = time;
     }
 
-    public String getName() {
-        return name;
+    private static final double Rad = 6371000.0;
+    /**
+     * Calculates the distance between two latitude/longitude points
+     * in kilometers using the Haversine formula.
+     */
+    public static double haversine(double lat1, double lon1, double lat2, double lon2) {
+        // Convert degrees to radians
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLon = Math.toRadians(lon2 - lon1);
+
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+
+        // Haversine formula
+        double a = Math.pow(Math.sin(dLat / 2), 2)
+                + Math.pow(Math.sin(dLon / 2), 2)
+                * Math.cos(lat1) * Math.cos(lat2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return Rad * c;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public double distanceTo(Attraction other) {
+        return haversine(this.latitude, this.longitude, other.latitude, other.longitude);
     }
 
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
+    public String getName() {return name;}
+    public void setName(String name) {this.name = name;}
+    public double getLongitude() {return longitude;}
+    public void setLongitude(double longitude) {this.longitude = longitude;}
+    public double getLatitude() {return latitude;}
+    public void setLatitude(double latitude) {this.latitude = latitude;}
+    public int getTime() {return time;}
+    public void setTime(int time) {this.time = time;}
 
     // Parcelable implementation
     protected Attraction(Parcel in) {
         name = in.readString();
         latitude = in.readDouble();
         longitude = in.readDouble();
+        time = in.readInt();
     }
 
     public static final Creator<Attraction> CREATOR = new Creator<Attraction>() {
@@ -69,6 +79,7 @@ public class Attraction implements Parcelable {
         dest.writeString(name);
         dest.writeDouble(latitude);
         dest.writeDouble(longitude);
+        dest.writeInt(time);
     }
 }
 
