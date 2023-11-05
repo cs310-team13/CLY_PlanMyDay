@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -99,58 +100,72 @@ public class DayPlannerActivity extends Activity {
 
         // Retrieve the selected choices from the Intent
         Intent intent = getIntent();
-        if (intent != null) {
-            ArrayList<Attraction> selected_attractions = intent.getParcelableArrayListExtra("attractions");
-            Button submitButton = findViewById(R.id.submitButton);
+        ArrayList<Attraction> selected_attractions = intent.getParcelableArrayListExtra("attractions");
+        int numDays = intent.getIntExtra("numDays", 1);
 
-            int numDays = intent.getIntExtra("numDays", 1);
-            Boolean isFeasibleTrip = true;
-            // Calculate the shortest path
-            ArrayList<Attraction> shortestPath = calculateShortestPath(selected_attractions);
-            List<List<Attraction>> dailyPlans = planTrip(shortestPath, numDays);
+        // Calculate the shortest path and plan the trip
+        ArrayList<Attraction> shortestPath = calculateShortestPath(selected_attractions);
+        List<List<Attraction>> dailyPlans = planTrip(shortestPath, numDays);
 
-            TextView displayChoicesText = findViewById(R.id.displayChoices);
-            StringBuilder choicesBuilder = new StringBuilder();
+        // Display the choices and plans
+        TextView displayChoicesText = findViewById(R.id.displayChoices);
+        displayChoicesText.setText(buildChoicesDisplay(dailyPlans, numDays));
 
-            choicesBuilder.append("\nNumber of days: ").append(numDays).append("\n\n");
+        // Set up the buttons
+        Button viewInGoogleMapsButton = findViewById(R.id.viewInGoogleMapsButton);
+        Button viewDirectlyHereButton = findViewById(R.id.viewDirectlyHereButton);
 
-            for (int day = 0; day < dailyPlans.size(); day++) {
-                List<Attraction> dailyAttractions = dailyPlans.get(day);
-                int routeTime = computeRouteTime(dailyAttractions);
-                if (routeTime >= 8 * 60) {
-                    isFeasibleTrip = false;
-                }
-                choicesBuilder.append("Day ").append(day + 1).append(":\n");
-                for (Attraction attraction : dailyAttractions) {
-                    choicesBuilder.append(attraction.getName()).append("\n");
-                }
-                choicesBuilder.append("\nTotal time: ").append(routeTime).append(" minutes").append("\n\n");
-            }
-
-            displayChoicesText.setText(choicesBuilder.toString());
-
-            if (!isFeasibleTrip) {
-                submitButton.setEnabled(false); // Disable the submit button
-                Toast.makeText(DayPlannerActivity.this, "Too many attractions in one day!", Toast.LENGTH_SHORT).show();
-            } else {
-                submitButton.setEnabled(true);
-            }
-            submitButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent mapIntent = new Intent(DayPlannerActivity.this, ViewGoogleMapActivity.class);
-                    // pass dailyPlans to ViewGoogleMapActivity
-                    ArrayList<Bundle> dailyPlansBundles = new ArrayList<>();
-                    for (List<Attraction> dailyPlan : dailyPlans) {
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelableArrayList("dayPlan", new ArrayList<Parcelable>(dailyPlan));
-                        dailyPlansBundles.add(bundle);
-                    }
-                    mapIntent.putParcelableArrayListExtra("dailyPlansBundles", dailyPlansBundles);
-                    startActivity(mapIntent); // Don't forget to start the activity
-                }
+        // Check if the trip is feasible
+        if (!isFeasibleTrip(dailyPlans)) {
+            viewInGoogleMapsButton.setEnabled(false);
+            viewDirectlyHereButton.setEnabled(false);
+            Toast.makeText(DayPlannerActivity.this, "Too many attractions in one day!", Toast.LENGTH_SHORT).show();
+        } else {
+            // Set up button to view in Google Maps
+            viewInGoogleMapsButton.setOnClickListener(v -> {
+                Intent mapIntent = new Intent(DayPlannerActivity.this, ViewGoogleMapActivity.class);
+                mapIntent.putParcelableArrayListExtra("dailyPlansBundles", bundleDailyPlans(dailyPlans));
+                startActivity(mapIntent);
             });
 
+            // Set up button to view directly here (within the app)
+            viewDirectlyHereButton.setOnClickListener(v -> {
+                //TODO: implement
+            });
         }
+    }
+
+    private boolean isFeasibleTrip(List<List<Attraction>> dailyPlans) {
+        for (List<Attraction> dayPlan : dailyPlans) {
+            if (computeRouteTime(dayPlan) >= 8 * 60) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private ArrayList<Bundle> bundleDailyPlans(List<List<Attraction>> dailyPlans) {
+        ArrayList<Bundle> dailyPlansBundles = new ArrayList<>();
+        for (List<Attraction> dailyPlan : dailyPlans) {
+            Bundle bundle = new Bundle();
+            bundle.putParcelableArrayList("dayPlan", new ArrayList<Parcelable>(dailyPlan));
+            dailyPlansBundles.add(bundle);
+        }
+        return dailyPlansBundles;
+    }
+
+    private String buildChoicesDisplay(List<List<Attraction>> dailyPlans, int numDays) {
+        StringBuilder choicesBuilder = new StringBuilder();
+        choicesBuilder.append("\nNumber of days: ").append(numDays).append("\n\n");
+        for (int day = 0; day < dailyPlans.size(); day++) {
+            List<Attraction> dailyAttractions = dailyPlans.get(day);
+            int routeTime = computeRouteTime(dailyAttractions);
+            choicesBuilder.append("Day ").append(day + 1).append(":\n");
+            for (Attraction attraction : dailyAttractions) {
+                choicesBuilder.append(attraction.getName()).append("\n");
+            }
+            choicesBuilder.append("\nTotal time: ").append(routeTime).append(" minutes").append("\n\n");
+        }
+        return choicesBuilder.toString();
     }
 }

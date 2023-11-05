@@ -25,10 +25,19 @@
         android:layout_marginTop="20dp" />
 
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/viewInGoogleMapsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="View in Google Maps"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/viewDirectlyHereButton"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/viewDirectlyHereButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Directly Here"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp" />
