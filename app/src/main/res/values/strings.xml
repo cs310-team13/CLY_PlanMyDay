@@ -37,4 +37,5 @@
     <string name="multi_day">Multi-day</string>
     <string name="dob_info_description">We ask for your date of birth as a mean to verify your identity when we receive a request to reset your password. You are more than welcome to use any 8-digit integer to replace your actual birthday, should you have privacy concerns. </string>
     <string name="dob_info_recovery_description">We asked for your date of birth upon registration as a mean to verify your identity when recovering account, but no constraint was imposed on the format. This can in fact be any string you chose when you registered.</string>
+    <string name="title_activity_view_google_map">ViewGoogleMapActivity</string>
 </resources>

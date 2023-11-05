@@ -138,17 +138,19 @@ public class DayPlannerActivity extends Activity {
             submitButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent mapIntent = new Intent(DayPlannerActivity.this, MapsActivity.class);
-                    // pass dailyPlans to MapsActivity
+                    Intent mapIntent = new Intent(DayPlannerActivity.this, ViewGoogleMapActivity.class);
+                    // pass dailyPlans to ViewGoogleMapActivity
                     ArrayList<Bundle> dailyPlansBundles = new ArrayList<>();
                     for (List<Attraction> dailyPlan : dailyPlans) {
                         Bundle bundle = new Bundle();
                         bundle.putParcelableArrayList("dayPlan", new ArrayList<Parcelable>(dailyPlan));
                         dailyPlansBundles.add(bundle);
                     }
-                    mapIntent.putParcelableArrayListExtra("dailyPlans", dailyPlansBundles);
+                    mapIntent.putParcelableArrayListExtra("dailyPlansBundles", dailyPlansBundles);
+                    startActivity(mapIntent); // Don't forget to start the activity
                 }
             });
+
         }
     }
 }
