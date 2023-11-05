@@ -2,6 +2,7 @@ package com.example.planmyday;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,22 +14,16 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.PolylineOptions;
-
-import org.json.JSONObject;
-import android.os.AsyncTask;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-
-//TODO: EVERY coordinate in this file is FLIPPED due to incorrect attraction class data members.
 public class ViewGoogleMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private List<List<Attraction>> dailyPlans;
     private final int[] COLORS = new int[]{Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA, Color.YELLOW, Color.CYAN};
+    private DirectionsParser directionsParser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +52,8 @@ public class ViewGoogleMapActivity extends FragmentActivity implements OnMapRead
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        directionsParser = new DirectionsParser(mMap, COLORS); // Initialize the DirectionsParser here
+
         if (!dailyPlans.isEmpty() && !dailyPlans.get(0).isEmpty()) {
             // Move the camera to the first point of the first day plan
             Attraction firstAttraction = dailyPlans.get(0).get(0);
@@ -75,11 +72,10 @@ public class ViewGoogleMapActivity extends FragmentActivity implements OnMapRead
                 Attraction origin = dayPlan.get(i);
                 Attraction destination = dayPlan.get(i + 1);
                 String url = getDirectionsUrl(origin, destination);
-                new FetchURL(dayIndex).execute(url); // Pass the day index to the AsyncTask
+                new FetchURL(directionsParser, dayIndex).execute(url); // Use the DirectionsParser here
             }
         }
     }
-
 
     private String getDirectionsUrl(Attraction origin, Attraction destination) {
         String str_origin = "origin=" + origin.getLongitude() + "," + origin.getLatitude();
@@ -90,12 +86,13 @@ public class ViewGoogleMapActivity extends FragmentActivity implements OnMapRead
         return "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters;
     }
 
+    // Update the FetchURL class to use DirectionsParser
     private class FetchURL extends AsyncTask<String, Void, String> {
-
+        private DirectionsParser directionsParser;
         private int dayIndex;
 
-        // Constructor to receive the day index
-        public FetchURL(int dayIndex) {
+        public FetchURL(DirectionsParser directionsParser, int dayIndex) {
+            this.directionsParser = directionsParser;
             this.dayIndex = dayIndex;
         }
 
@@ -113,60 +110,9 @@ public class ViewGoogleMapActivity extends FragmentActivity implements OnMapRead
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            new ParserTask(dayIndex).execute(result); // Pass the day index to the ParserTask
+            directionsParser.parseDirections(result, dayIndex); // Use the DirectionsParser here
         }
     }
 
-    private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
-        private int dayIndex;
-
-        // Constructor to receive the day index
-        public ParserTask(int dayIndex) {
-            this.dayIndex = dayIndex;
-        }
-        @Override
-        protected List<List<HashMap<String, String>>> doInBackground(String... jsonData) {
-            JSONObject jObject;
-            List<List<HashMap<String, String>>> routes = null;
-            try {
-                jObject = new JSONObject(jsonData[0]);
-                DirectionsJSONParser parser = new DirectionsJSONParser();
-                routes = parser.parse(jObject);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return routes;
-        }
-
-        @Override
-        protected void onPostExecute(List<List<HashMap<String, String>>> result) {
-            ArrayList<LatLng> points;
-            PolylineOptions lineOptions = null;
-
-            for (int i = 0; i < result.size(); i++) {
-                points = new ArrayList<>();
-                lineOptions = new PolylineOptions();
-
-                List<HashMap<String, String>> path = result.get(i);
-                for (int j = 0; j < path.size(); j++) {
-                    HashMap<String, String> point = path.get(j);
-                    double lat = Double.parseDouble(point.get("lat"));
-                    double lng = Double.parseDouble(point.get("lng"));
-                    LatLng position = new LatLng(lat, lng);
-                    Toast.makeText(getApplicationContext(), "lat: " + lat + ", lng: " + lng, Toast.LENGTH_LONG).show();
-                    points.add(position);
-                }
-
-                lineOptions.addAll(points);
-                lineOptions.width(10); // Increased line width for visibility
-                lineOptions.color(COLORS[dayIndex % COLORS.length]);
-            }
-
-            if (lineOptions != null) {
-                mMap.addPolyline(lineOptions);
-            } else {
-                Log.d("onPostExecute", "without Polylines drawn");
-            }
-        }
-    }
+    // Remove the ParserTask class as it's now handled by DirectionsParser
 }

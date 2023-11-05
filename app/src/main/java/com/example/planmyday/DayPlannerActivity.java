@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -92,7 +94,12 @@ public class DayPlannerActivity extends Activity {
 
         return tripPlan;
     }
-    
+
+
+
+    private Spinner daySpinner;
+    private List<List<Attraction>> dailyPlans;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,11 +112,19 @@ public class DayPlannerActivity extends Activity {
 
         // Calculate the shortest path and plan the trip
         ArrayList<Attraction> shortestPath = calculateShortestPath(selected_attractions);
-        List<List<Attraction>> dailyPlans = planTrip(shortestPath, numDays);
+        dailyPlans = planTrip(shortestPath, numDays);
 
         // Display the choices and plans
         TextView displayChoicesText = findViewById(R.id.displayChoices);
         displayChoicesText.setText(buildChoicesDisplay(dailyPlans, numDays));
+
+        // Initialize the Spinner
+        daySpinner = findViewById(R.id.daySpinner);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, getDaySelectionList(numDays));
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        daySpinner.setAdapter(spinnerAdapter);
+        daySpinner.setSelection(0); // Default to day 1
 
         // Set up the buttons
         Button viewInGoogleMapsButton = findViewById(R.id.viewInGoogleMapsButton);
@@ -123,16 +138,49 @@ public class DayPlannerActivity extends Activity {
         } else {
             // Set up button to view in Google Maps
             viewInGoogleMapsButton.setOnClickListener(v -> {
+                int selectedDayIndex = daySpinner.getSelectedItemPosition();
                 Intent mapIntent = new Intent(DayPlannerActivity.this, ViewGoogleMapActivity.class);
-                mapIntent.putParcelableArrayListExtra("dailyPlansBundles", bundleDailyPlans(dailyPlans));
+
+                // Create a new Bundle for the selected day's attractions
+                Bundle dayPlanBundle = new Bundle();
+                dayPlanBundle.putParcelableArrayList("dayPlan", new ArrayList<Parcelable>(dailyPlans.get(selectedDayIndex)));
+
+                // Create a new ArrayList of Bundles to pass to the Intent
+                ArrayList<Bundle> selectedDayPlansBundle = new ArrayList<>();
+                selectedDayPlansBundle.add(dayPlanBundle);
+
+                // Put the ArrayList of one Bundle into the Intent
+                mapIntent.putParcelableArrayListExtra("dailyPlansBundles", selectedDayPlansBundle);
                 startActivity(mapIntent);
             });
 
+
             // Set up button to view directly here (within the app)
             viewDirectlyHereButton.setOnClickListener(v -> {
-                //TODO: implement
+                Intent internalMapIntent = new Intent(DayPlannerActivity.this, InternalMapActivity.class);
+                internalMapIntent.putParcelableArrayListExtra("dailyPlansBundles", bundleDailyPlans(dailyPlans));
+                startActivity(internalMapIntent);
             });
         }
+    }
+
+    private List<String> getDaySelectionList(int numDays) {
+        List<String> daySelections = new ArrayList<>();
+        for (int i = 1; i <= numDays; i++) {
+            daySelections.add("Day " + i);
+        }
+        return daySelections;
+    }
+
+
+    private void initializeSpinner(int numDays) {
+        List<String> days = new ArrayList<>();
+        for (int i = 1; i <= numDays; i++) {
+            days.add("Day " + i);
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, days);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        daySpinner.setAdapter(adapter);
     }
 
     private boolean isFeasibleTrip(List<List<Attraction>> dailyPlans) {

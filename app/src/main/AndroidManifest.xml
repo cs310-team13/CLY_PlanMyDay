@@ -57,9 +57,7 @@
         <activity android:name=".LosAngelesActivity" />
         <activity android:name=".DaySelectionActivity" />
         <activity android:name=".DayPlannerActivity" />
-        <!--
         <activity android:name=".InternalMapActivity" />
-        -->
     </application>
 
 </manifest>

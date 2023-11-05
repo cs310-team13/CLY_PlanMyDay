@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
+    <!-- TextView for the label "Select day to preview route" -->
+    <TextView
+        android:id="@+id/textView_select_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@id/day_spinner"
+        android:text="Select day to preview route"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/day_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <!-- Legends for the routes -->
+    <LinearLayout
+        android:id="@+id/legend_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/day_spinner"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
+
+        <!-- Legend for car route -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="2dp"
+                android:background="#FF0000" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Car route"
+                android:layout_marginStart="4dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <!-- Legend for public transport route -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="2dp"
+                android:background="#0000FF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Public transport route"
+                android:layout_marginStart="4dp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Adjusted the map fragment to align to the bottom with padding -->
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <!-- Add other UI elements if needed -->
+        android:layout_width="383dp"
+        android:layout_height="499dp"
+        android:layout_below="@id/legend_container"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp" />
 
 </RelativeLayout>

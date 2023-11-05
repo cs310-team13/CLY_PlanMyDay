@@ -10,7 +10,7 @@
         android:id="@+id/selectedChoicesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selected Choices:"
+        android:text="Itinerary preview:"
         android:textSize="18dp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -24,21 +24,51 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
-    <Button
-        android:id="@+id/viewInGoogleMapsButton"
-        android:layout_width="wrap_content"
+    <!-- Bottom Buttons and Spinner -->
+    <LinearLayout
+        android:id="@+id/bottomButtonsLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View in Google Maps"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/viewDirectlyHereButton"
-        android:layout_marginBottom="10dp" />
-
-    <Button
-        android:id="@+id/viewDirectlyHereButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Directly Here"
-        android:layout_centerInParent="true"
+        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp" />
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/viewInGoogleMapsButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:text="View in Google Maps"
+                android:textColor="@color/white" />
+
+            <Spinner
+                android:id="@+id/daySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_background"
+                android:padding="8dp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/viewDirectlyHereButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_background"
+            android:text="View Directly Here"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- ... -->
+
+
 </RelativeLayout>
