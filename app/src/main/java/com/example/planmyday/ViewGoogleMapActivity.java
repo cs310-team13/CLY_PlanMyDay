@@ -58,7 +58,8 @@ public class ViewGoogleMapActivity extends FragmentActivity implements OnMapRead
             // Move the camera to the first point of the first day plan
             Attraction firstAttraction = dailyPlans.get(0).get(0);
             LatLng initialPosition = new LatLng(firstAttraction.getLongitude(), firstAttraction.getLatitude());
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialPosition, 8));
+            int zoomFactor = firstAttraction.isAtUSC() ? 15 : 11;
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialPosition, zoomFactor));
         }
         drawItineraryPaths();
     }

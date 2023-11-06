@@ -72,7 +72,8 @@ public class InternalMapActivity extends FragmentActivity implements OnMapReadyC
             // Move the camera to the first point of the first day plan
             Attraction firstAttraction = dailyPlans.get(0).get(0);
             LatLng initialPosition = new LatLng(firstAttraction.getLongitude(), firstAttraction.getLatitude());
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialPosition, 12));
+            int zoomFactor = firstAttraction.isAtUSC() ? 15 : 11;
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialPosition, zoomFactor));
             }
 
         // If there's a selected day in the spinner, draw the paths for that day
@@ -117,7 +118,8 @@ public class InternalMapActivity extends FragmentActivity implements OnMapReadyC
         if (!dayPlan.isEmpty()) {
             Attraction firstAttraction = dayPlan.get(0);
             LatLng initialPosition = new LatLng(firstAttraction.getLongitude(), firstAttraction.getLatitude());
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialPosition, 12));
+            int zoomFactor = firstAttraction.isAtUSC() ? 15 : 11;
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialPosition, zoomFactor));
         }
 
         for (int i = 0; i < dayPlan.size() - 1; i++) {
