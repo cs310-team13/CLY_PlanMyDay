@@ -16,7 +16,8 @@
     </style>
 
     <style name="Widget.PlanMyDay.Button" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/buttonColor</item>
+        <item name="android:background">@color/buttonColor</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">serif</item>
     </style>
 </resources>

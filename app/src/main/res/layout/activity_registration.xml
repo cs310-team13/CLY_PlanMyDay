@@ -1,70 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/app_logo"/>
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="@string/plan_my_day"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        android:fontFamily="serif"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logoImageView"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="16dp">
+        android:id="@+id/usernameLayout"
+        android:layout_below="@id/appName">
 
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/user"
+            android:layout_marginEnd="5dp"/>
 
-
-    <EditText
+        <EditText
             android:id="@+id/nicknameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif"
-            android:hint="Enter Nickname" />
+            android:fontFamily="serif"
+            android:hint="Enter Username"
+            android:layout_below="@id/appName"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordLayout"
+        android:layout_below="@id/emailLayout">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/password"
+            android:layout_marginEnd="5dp"/>
 
         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_password"
+            android:inputType="textPassword"
+            android:fontFamily="serif"
             android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Password"
-            android:inputType="textPassword"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="8dp" />
+            android:layout_below="@+id/emailEditText"/>
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirmPasswordLayout"
+        android:layout_below="@id/passwordLayout">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/confirm"
+            android:layout_marginEnd="5dp"/>
 
         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:fontFamily="serif"
             android:id="@+id/confirmPasswordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="8dp" />
+            android:layout_below="@id/passwordEditText"/>
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailLayout"
+        android:layout_below="@id/usernameLayout">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/email"
+            android:layout_marginEnd="5dp"/>
         <EditText
-            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Email"
+            android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="8dp" />
-
+            android:fontFamily="serif"
+            android:id="@+id/emailEditText"
+            android:layout_below="@id/nicknameEditText"/>
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:id="@+id/dobLayout"
+            android:layout_below="@+id/confirmPasswordLayout"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/bday"/>
 
             <EditText
-                android:id="@+id/dateOfBirthEditText"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_width="0dp"
                 android:layout_weight="1"
-                android:hint="Enter Date of Birth (mmddyyyy)"
+                android:hint="@string/enter_date_of_birth_mm_dd_yyyy"
                 android:inputType="date"
-                android:fontFamily="sans-serif"
-                android:layout_marginEnd="8dp" />
+                android:fontFamily="serif"
+                android:id="@+id/dateOfBirthEditText"/>
 
             <ImageButton
                 android:id="@+id/infoButton"
@@ -73,7 +146,6 @@
                 android:adjustViewBounds="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/dob_info_description"
-
                 android:maxWidth="24dp"
                 android:maxHeight="24dp"
                 android:scaleType="fitCenter"
@@ -83,19 +155,23 @@
 
         <Button
             android:id="@+id/registerButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:layout_marginTop="16dp" />
+            android:text="@string/register"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.PlanMyDay.Button"
+            android:layout_below="@+id/dobLayout"/>
 
         <Button
             android:id="@+id/cancelRegistrationButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:layout_marginTop="16dp" />
+            android:text="@string/cancel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            style="@style/Widget.PlanMyDay.Button"
+            android:layout_below="@id/registerButton"/>
 
 
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>

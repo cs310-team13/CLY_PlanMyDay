@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PlanMyDay</string>
+    <string name="app_name">Plan My Day</string>
     <string name="los_angeles_attractions">Los Angeles Attractions:</string>
     <string name="crypto_com_arena">Crypto.com Arena</string>
     <string name="disneyland_park">Disneyland Park</string>
@@ -47,4 +47,12 @@
     <string name="email">Email</string>
     <string name="app_logo">App Logo</string>
     <string name="plan_my_day">Plan My Day</string>
+    <string name="i_have_already_verified">I have already verified</string>
+    <string name="resend_verification_email">Resend Verification Email</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_date_of_birth_mm_dd_yyyy">Enter Date of Birth (MM/DD/YYYY)</string>
+    <string name="register">Register</string>
 </resources>
