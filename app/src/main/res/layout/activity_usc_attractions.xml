@@ -4,28 +4,39 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
-    tools:context=".USCActivity">
+    tools:context=".USCActivity"
+    android:background="@color/backgroundColor">
 
-    <!-- Heading -->
-    <TextView
-        android:id="@+id/heading"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/usc_attractions"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/headingLayout"
+        android:layout_centerHorizontal="true">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:src="@drawable/usc"/>
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usc_attractions"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
 
-    <!-- Vertical LinearLayout for checkboxes -->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/heading">
+        android:layout_below="@id/headingLayout"
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,6 +48,7 @@
                 android:id="@+id/checkbox_Annenberg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/annenberg_school_of_communication" />
 
             <ImageView
@@ -58,6 +70,7 @@
                 android:id="@+id/checkbox_Doheny"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/doheny_memorial_library" />
 
             <ImageView
@@ -79,6 +92,7 @@
                 android:id="@+id/checkbox_GW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/gwynn_wilson_student_union" />
 
             <ImageView
@@ -100,6 +114,7 @@
                 android:id="@+id/checkbox_KDC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/kaufman_international_dance_center" />
 
             <ImageView
@@ -121,6 +136,7 @@
                 android:id="@+id/checkbox_Leavey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/leavey" />
 
             <ImageView
@@ -142,6 +158,7 @@
                 android:id="@+id/checkbox_Mudd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/mudd_hall_of_philosophy" />
 
             <ImageView
@@ -163,6 +180,7 @@
                 android:id="@+id/checkbox_PE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/physical_education_building" />
 
             <ImageView
@@ -184,6 +202,7 @@
             android:id="@+id/checkbox_SAL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
             android:text="@string/salvatori_computer_science_center" />
 
             <ImageView
@@ -205,6 +224,7 @@
                 android:id="@+id/checkbox_THH"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/taper_hall_of_humanities" />
 
             <ImageView
@@ -226,6 +246,7 @@
                 android:id="@+id/checkbox_Tommy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/tommy_trojan" />
 
             <ImageView
@@ -247,6 +268,7 @@
                 android:id="@+id/checkbox_Traveler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/traveler_the_horse" />
 
             <ImageView
@@ -268,6 +290,7 @@
                 android:id="@+id/checkbox_Bookstore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/usc_bookstore" />
 
             <ImageView
@@ -284,11 +307,12 @@
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="@string/submit"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/linearLayout"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="50dp"
+        style="@style/Widget.PlanMyDay.Button"/>
 
     <!-- Add an ImageView for the image popup (hidden initially) -->
     <ImageView

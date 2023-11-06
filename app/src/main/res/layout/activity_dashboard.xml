@@ -5,46 +5,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".DashboardActivity">
+    tools:context=".DashboardActivity"
+    android:background="@color/backgroundColor">
+
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/app_logo"/>
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="@string/plan_my_day"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        android:fontFamily="serif"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logoImageView"
+        />
 
     <TextView
         android:id="@+id/questionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_below="@id/appName"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="serif"
         android:text="@string/question"
-        android:textSize="18sp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="250dp"
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true" />
+        android:textSize="20sp"
+        android:background="@drawable/box"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"/>
+
+
+    <ImageView
+        android:id="@+id/trojan"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/questionText"
+        android:layout_alignRight="@id/questionText"
+        android:src="@drawable/trojan" />
 
     <Button
         android:id="@+id/USCButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@id/questionText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/usc" />
+        android:layout_marginTop="10dp"
+        android:text="@string/usc"
+        style="@style/Widget.PlanMyDay.Button"
+        />
 
     <Button
         android:id="@+id/LAButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionText"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@id/USCButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="50dp"
-        android:text="@string/los_angeles" />
+        android:text="@string/los_angeles"
+        style="@style/Widget.PlanMyDay.Button"/>
 
     <Button
         android:id="@+id/logoutButton"
-        android:layout_below="@+id/LAButton"
+        style="@style/Widget.PlanMyDay.Button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:text="@string/log_out"/>
+        android:text="@string/log_out" />
+
 </RelativeLayout>

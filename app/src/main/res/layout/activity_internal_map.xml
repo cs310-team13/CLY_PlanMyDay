@@ -2,16 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
 
     <!-- TextView for the label "Select day to preview route" -->
     <TextView
         android:id="@+id/textView_select_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@id/day_spinner"
-        android:text="Select day to preview route"
+        android:text="Select day to preview route:"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:textColor="@color/black"
         android:layout_marginEnd="8dp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -19,8 +21,12 @@
         android:id="@+id/day_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView_select_day"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="6dp"
+        android:layout_toEndOf="@+id/textView_select_day"
+        android:background="@drawable/spinner_background" />
 
     <!-- Legends for the routes -->
     <LinearLayout
@@ -40,11 +46,14 @@
             <View
                 android:layout_width="24dp"
                 android:layout_height="2dp"
+                android:layout_marginTop="10dp"
                 android:background="#FF0000" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Car route"
+                android:text=" Car Route"
+                android:fontFamily="serif"
+                android:textColor="@color/black"
                 android:layout_marginStart="4dp"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>
@@ -59,11 +68,14 @@
             <View
                 android:layout_width="24dp"
                 android:layout_height="2dp"
+                android:layout_marginTop="10dp"
                 android:background="#0000FF" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Public transport route"
+                android:text=" Public Transport Route"
+                android:fontFamily="serif"
+                android:textColor="@color/black"
                 android:layout_marginStart="4dp"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>

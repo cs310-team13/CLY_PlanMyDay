@@ -204,7 +204,7 @@ public class DayPlannerActivity extends Activity {
 
     private String buildChoicesDisplay(List<List<Attraction>> dailyPlans, int numDays) {
         StringBuilder choicesBuilder = new StringBuilder();
-        choicesBuilder.append("\nNumber of days: ").append(numDays).append("\n\n");
+        choicesBuilder.append("\nNumber of Days: ").append(numDays).append("\n\n");
         for (int day = 0; day < dailyPlans.size(); day++) {
             List<Attraction> dailyAttractions = dailyPlans.get(day);
             int routeTime = computeRouteTime(dailyAttractions);
@@ -212,7 +212,8 @@ public class DayPlannerActivity extends Activity {
             for (Attraction attraction : dailyAttractions) {
                 choicesBuilder.append(attraction.getName()).append("\n");
             }
-            choicesBuilder.append("\nTotal time: ").append(routeTime).append(" minutes").append("\n\n");
+            int dayNumber = day + 1;
+            choicesBuilder.append("\nTotal Time on Day " + dayNumber + ":\n").append(routeTime).append(" minutes").append("\n\n");
         }
         return choicesBuilder.toString();
     }

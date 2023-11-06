@@ -4,25 +4,40 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
-    tools:context=".DayPlannerActivity">
+    tools:context=".DayPlannerActivity"
+    android:background="@color/backgroundColor">
 
     <TextView
         android:id="@+id/selectedChoicesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Itinerary preview:"
-        android:textSize="18dp"
+        android:text="@string/itinerary_preview"
+        android:fontFamily="serif"
+        android:textColor="@color/black"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="20dp" />
 
-    <TextView
-        android:id="@+id/displayChoices"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollViewDisplayChoices"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/selectedChoicesText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:padding="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/frame"
+        android:layout_above="@id/bottomButtonsLayout">
+
+        <TextView
+            android:id="@+id/displayChoices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:gravity="center" />
+    </ScrollView>
 
     <!-- Bottom Buttons and Spinner -->
     <LinearLayout
@@ -46,8 +61,8 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_background"
                 android:text="View in Google Maps"
+                style="@style/Widget.PlanMyDay.Button"
                 android:textColor="@color/white" />
 
             <Spinner
@@ -63,12 +78,10 @@
             android:id="@+id/viewDirectlyHereButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@drawable/button_background"
-            android:text="View Directly Here"
+            android:text="View in App"
+            style="@style/Widget.PlanMyDay.Button"
             android:textColor="@color/white" />
     </LinearLayout>
-
-    <!-- ... -->
 
 
 </RelativeLayout>

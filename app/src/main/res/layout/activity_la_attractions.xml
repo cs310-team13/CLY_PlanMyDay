@@ -4,19 +4,30 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
-    tools:context=".USCActivity">
+    tools:context=".USCActivity"
+    android:background="@color/backgroundColor">
 
-    <!-- Heading -->
-    <TextView
-        android:id="@+id/heading"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/los_angeles_attractions"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/headingLayout"
+        android:layout_centerHorizontal="true">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/la"/>
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/los_angeles_attractions"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="serif"/>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +35,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/heading">
+        android:layout_below="@id/headingLayout"
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,6 +48,7 @@
                 android:id="@+id/checkbox_Crypto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/crypto_com_arena" />
 
             <ImageView
@@ -57,6 +70,7 @@
                 android:id="@+id/checkbox_Disney"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/disneyland_park" />
 
             <ImageView
@@ -78,6 +92,7 @@
                 android:id="@+id/checkbox_Dodgers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/dodgers_stadium" />
 
             <ImageView
@@ -99,6 +114,7 @@
                 android:id="@+id/checkbox_Griffith"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/griffith_observatory" />
 
             <ImageView
@@ -120,6 +136,7 @@
                 android:id="@+id/checkbox_Hollywood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/hollywood_sign" />
 
             <ImageView
@@ -141,6 +158,7 @@
                 android:id="@+id/checkbox_LACMA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/los_angeles_county_museum_of_art" />
 
             <ImageView
@@ -162,6 +180,7 @@
                 android:id="@+id/checkbox_SMP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/santa_monica_pier" />
 
             <ImageView
@@ -183,6 +202,7 @@
                 android:id="@+id/checkbox_Broad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/the_broad" />
 
             <ImageView
@@ -204,6 +224,7 @@
                 android:id="@+id/checkbox_Getty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/the_getty" />
 
             <ImageView
@@ -225,6 +246,7 @@
                 android:id="@+id/checkbox_Grove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/the_grove" />
 
             <ImageView
@@ -246,6 +268,7 @@
                 android:id="@+id/checkbox_Universal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/universal_studios_hollywood" />
 
             <ImageView
@@ -267,6 +290,7 @@
                 android:id="@+id/checkbox_Venice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="Venice Beach" />
 
             <ImageView
@@ -283,11 +307,12 @@
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="@string/submit"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/linearLayout"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="50dp"
+        style="@style/Widget.PlanMyDay.Button"/>
 
     <!-- Add an ImageView for the image popup (hidden initially) -->
     <ImageView

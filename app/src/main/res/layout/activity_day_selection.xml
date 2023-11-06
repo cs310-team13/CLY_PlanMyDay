@@ -5,20 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".DaySelectionActivity">
+    tools:context=".DaySelectionActivity"
+    android:background="@color/backgroundColor">
+
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/app_logo"/>
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="@string/plan_my_day"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        android:fontFamily="serif"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logoImageView"
+        />
 
     <TextView
         android:id="@+id/question2Text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:text="@string/q2"
+        android:background="@drawable/q2"
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
+        android:gravity="center"
+        android:padding="25dp"
         android:textSize="25sp"
         android:textColor="@color/black"
+        android:fontFamily="serif"
         android:textStyle="bold"
-        android:layout_marginTop="250dp"
-        android:layout_centerInParent="true"
-        android:layout_alignParentTop="true" />
+        android:layout_below="@id/appName"/>
 
     <Button
         android:id="@+id/oneButton"
@@ -28,7 +54,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
-        android:text="@string/one_day" />
+        android:text="@string/one_day"
+        style="@style/Widget.PlanMyDay.Button"/>
 
     <Button
         android:id="@+id/multiButton"
@@ -38,5 +65,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:text="@string/multi_day" />
+        android:text="@string/multi_day"
+        style="@style/Widget.PlanMyDay.Button"/>
 </RelativeLayout>

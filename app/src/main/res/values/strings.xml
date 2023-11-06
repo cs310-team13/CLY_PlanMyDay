@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Plan My Day</string>
-    <string name="los_angeles_attractions">Los Angeles Attractions:</string>
+    <string name="los_angeles_attractions">LA Attractions:</string>
     <string name="crypto_com_arena">Crypto.com Arena</string>
     <string name="disneyland_park">Disneyland Park</string>
     <string name="dodgers_stadium">Dodgers Stadium</string>
@@ -55,4 +55,5 @@
     <string name="enter_email">Enter Email</string>
     <string name="enter_date_of_birth_mm_dd_yyyy">Enter Date of Birth (MM/DD/YYYY)</string>
     <string name="register">Register</string>
+    <string name="itinerary_preview">Itinerary Preview</string>
 </resources>
