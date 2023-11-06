@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="230dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo"
         android:contentDescription="@string/app_logo"/>
@@ -20,13 +20,11 @@
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:text="@string/plan_my_day"
         android:textSize="40sp"
         android:textStyle="bold|italic"
         android:fontFamily="serif"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/logoImageView"
@@ -38,10 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/appName"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_below="@id/appName">
 
         <ImageView
             android:layout_width="50dp"
@@ -70,8 +65,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/emailLayout"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:contentDescription="@string/password_icon">
 
         <ImageView
@@ -97,23 +90,25 @@
     <!-- Login Button -->
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/passwordLayout"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:text="@string/log_in"
+        android:background="@color/buttonColor"
         android:fontFamily="serif"
         style="@style/Widget.PlanMyDay.Button" />
 
     <!-- Create Account Button -->
     <Button
         android:id="@+id/createAccountButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/loginButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/buttonColor"
         android:text="@string/create_new_account"
         android:fontFamily="serif"
         style="@style/Widget.PlanMyDay.Button" />
@@ -121,11 +116,12 @@
     <!-- Forgot Password Button -->
     <Button
         android:id="@+id/forgotPasswordButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/createAccountButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/buttonColor"
         android:text="@string/forgot_password"
         android:fontFamily="serif"
         style="@style/Widget.PlanMyDay.Button" />
