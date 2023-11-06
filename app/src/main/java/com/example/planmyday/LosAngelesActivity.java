@@ -71,40 +71,40 @@ public class LosAngelesActivity extends Activity {
 
             // Check each checkbox and add the selected attractions to the list
             if (checkbox_Crypto.isChecked()) {
-                LAAttractions.add(new Attraction("Crypto.com Arena", 34.043239725397534, -118.26715754465302, 30));
+                LAAttractions.add(new Attraction("Crypto.com Arena", 34.043239725397534, -118.26715754465302, 30, false));
             }
             if (checkbox_Disney.isChecked()) {
-                LAAttractions.add(new Attraction("Disneyland Park", 33.812323543075266, -117.91904930604437, 180));
+                LAAttractions.add(new Attraction("Disneyland Park", 33.812323543075266, -117.91904930604437, 180, false));
             }
             if (checkbox_Dodgers.isChecked()) {
-                LAAttractions.add(new Attraction("Dodgers Stadium", 34.07409980507749, -118.2400012195226, 30));
+                LAAttractions.add(new Attraction("Dodgers Stadium", 34.07409980507749, -118.2400012195226, 30, false));
             }
             if (checkbox_Griffith.isChecked()) {
-                LAAttractions.add(new Attraction("Griffith Observatory",34.118567305842724, -118.30037204650294, 60));
+                LAAttractions.add(new Attraction("Griffith Observatory",34.118567305842724, -118.30037204650294, 60, false));
             }
             if (checkbox_Hollywood.isChecked()) {
-                LAAttractions.add(new Attraction("Hollywood Sign", 34.134332141812706, -118.3215692658123, 60));
+                LAAttractions.add(new Attraction("Hollywood Sign", 34.134332141812706, -118.3215692658123, 60, false));
             }
             if (checkbox_LACMA.isChecked()) {
-                LAAttractions.add(new Attraction("Los Angeles County Museum of Art", 34.06416335844787, -118.35920784650568, 60));
+                LAAttractions.add(new Attraction("Los Angeles County Museum of Art", 34.06416335844787, -118.35920784650568, 60, false));
             }
             if (checkbox_SMP.isChecked()) {
-                LAAttractions.add(new Attraction("Santa Monica Pier", 34.0084706308887, -118.49875101293324, 45));
+                LAAttractions.add(new Attraction("Santa Monica Pier", 34.0084706308887, -118.49875101293324, 45, false));
             }
             if (checkbox_Broad.isChecked()) {
-                LAAttractions.add(new Attraction("The Broad", 34.0546620731521, -118.2501587465062, 60));
+                LAAttractions.add(new Attraction("The Broad", 34.0546620731521, -118.2501587465062, 60, false));
             }
             if (checkbox_Getty.isChecked()) {
-                LAAttractions.add(new Attraction("The Getty", 34.078124637386516, -118.47403103115997, 120));
+                LAAttractions.add(new Attraction("The Getty", 34.078124637386516, -118.47403103115997, 120, false));
             }
             if (checkbox_Grove.isChecked()) {
-                LAAttractions.add(new Attraction("The Grove", 34.07672370541953, -118.35865922045846, 60));
+                LAAttractions.add(new Attraction("The Grove", 34.07672370541953, -118.35865922045846, 60, false));
             }
             if (checkbox_Universal.isChecked()) {
-                LAAttractions.add(new Attraction("Universal Studios Hollywood", 34.13823221460428, -118.35322810046722, 240));
+                LAAttractions.add(new Attraction("Universal Studios Hollywood", 34.13823221460428, -118.35322810046722, 240, false));
             }
             if (checkbox_Venice.isChecked()) {
-                LAAttractions.add(new Attraction("Venice Beach", 33.99415852939198, -118.4810175097266, 60));
+                LAAttractions.add(new Attraction("Venice Beach", 33.99415852939198, -118.4810175097266, 60, false));
             }
 
             if (LAAttractions.isEmpty()) {

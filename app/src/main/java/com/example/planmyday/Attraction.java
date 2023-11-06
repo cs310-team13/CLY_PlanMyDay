@@ -7,12 +7,14 @@ public class Attraction implements Parcelable {
     private double longitude;
     private double latitude;
     private int time;
+    private boolean atUSC;
 
-    public Attraction(String name, double longitude, double latitude, int time) {
+    public Attraction(String name, double longitude, double latitude, int time, boolean atUSC){
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
         this.time = time;
+        this.atUSC = atUSC;
     }
 
     private static final double Rad = 6371000.0;
@@ -48,6 +50,8 @@ public class Attraction implements Parcelable {
     public void setLatitude(double latitude) {this.latitude = latitude;}
     public int getTime() {return time;}
     public void setTime(int time) {this.time = time;}
+    public boolean isAtUSC() {return atUSC;}
+    public void setAtUSC(boolean atUSC) {this.atUSC = atUSC;}
 
     // Parcelable implementation
     protected Attraction(Parcel in) {
@@ -55,6 +59,7 @@ public class Attraction implements Parcelable {
         latitude = in.readDouble();
         longitude = in.readDouble();
         time = in.readInt();
+        atUSC = in.readByte() != 0;
     }
 
     public static final Creator<Attraction> CREATOR = new Creator<Attraction>() {
@@ -80,6 +85,7 @@ public class Attraction implements Parcelable {
         dest.writeDouble(latitude);
         dest.writeDouble(longitude);
         dest.writeInt(time);
+        dest.writeByte((byte) (atUSC ? 1 : 0));
     }
 }
 
