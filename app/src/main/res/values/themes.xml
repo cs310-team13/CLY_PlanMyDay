@@ -12,5 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="materialButtonStyle">@style/Widget.PlanMyDay.Button</item>
+    </style>
+
+    <style name="Widget.PlanMyDay.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/buttonColor</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>
