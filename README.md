@@ -5,4 +5,4 @@
   - email: yeqilin@usc.edu, password: 111111
 
 3. Any specific problems you believe that we might face due to certain API restrictions (e.g. Firebase, Google Maps)
-   - If you are using USC guest wireless connection, there is a possibility that firebase will fail to authenticate for user registration or login. Please switch networks when `login failed` issues are encountered. Trying switching to USC secure wireless or your hotspot if the application is accessed at USC. 
+  - if you are using USC guest wireless connection, there is a possibility that firebase will fail to authenticate for user registration or login. Please switch networks when `login failed` issues are encountered. Trying switching to USC secure wireless or your hotspot if the application is accessed at USC. 
