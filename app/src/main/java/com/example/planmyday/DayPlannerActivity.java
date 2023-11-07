@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -133,7 +135,9 @@ public class DayPlannerActivity extends Activity {
         // Check if the trip is feasible
         if (!isFeasibleTrip(dailyPlans)) {
             viewInGoogleMapsButton.setEnabled(false);
+            viewInGoogleMapsButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.gray));
             viewDirectlyHereButton.setEnabled(false);
+            viewDirectlyHereButton.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.gray));
             Toast.makeText(DayPlannerActivity.this, "Too many attractions in one day!", Toast.LENGTH_SHORT).show();
         } else {
             // Set up button to view in Google Maps
