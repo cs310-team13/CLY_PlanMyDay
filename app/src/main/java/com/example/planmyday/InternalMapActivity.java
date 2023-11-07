@@ -155,6 +155,11 @@ public class InternalMapActivity extends FragmentActivity implements OnMapReadyC
             Attraction origin = dayPlan.get(i);
             Attraction destination = dayPlan.get(i + 1);
 
+            // Put a marker for the origin
+            LatLng originLatLng = new LatLng(origin.getLongitude(), origin.getLatitude());
+            mMap.addMarker(new MarkerOptions().position(originLatLng).title(origin.getName()));
+
+
             // For driving routes
             String drivingUrl = getDirectionsUrl(origin, destination, "driving");
             new FetchURL(directionsParser, dayIndex).execute(drivingUrl);
