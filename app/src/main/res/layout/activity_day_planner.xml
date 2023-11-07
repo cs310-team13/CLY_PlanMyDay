@@ -36,6 +36,7 @@
             android:fontFamily="serif"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:padding="50dp"
             android:gravity="center" />
     </ScrollView>
 

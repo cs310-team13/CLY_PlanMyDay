@@ -18,6 +18,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,34 @@ public class InternalMapActivity extends FragmentActivity implements OnMapReadyC
     }
 
 
+//    private void drawItineraryPaths(int dayIndex) {
+//
+//        if (dailyPlans == null || dailyPlans.isEmpty() || dailyPlans.get(dayIndex).isEmpty()) return;
+//        List<Attraction> dayPlan = dailyPlans.get(dayIndex);
+//        mMap.clear(); // Clear the previous routes
+//
+//
+//        // If the day plan has attractions, move the camera to the first point of the selected day plan
+//        if (!dayPlan.isEmpty()) {
+//            Attraction firstAttraction = dayPlan.get(0);
+//            LatLng initialPosition = new LatLng(firstAttraction.getLongitude(), firstAttraction.getLatitude());
+//            int zoomFactor = firstAttraction.isAtUSC() ? 15 : 11;
+//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(initialPosition, zoomFactor));
+//        }
+//
+//        for (int i = 0; i < dayPlan.size() - 1; i++) {
+//            Attraction origin = dayPlan.get(i);
+//            Attraction destination = dayPlan.get(i + 1);
+//
+//            // For driving routes
+//            String drivingUrl = getDirectionsUrl(origin, destination, "driving");
+//            new FetchURL(directionsParser, dayIndex).execute(drivingUrl);
+//
+//            // For public transport routes
+//            String transitUrl = getDirectionsUrl(origin, destination, "transit");
+//            new FetchURL(publicTransportDirectionsParser, dayIndex).execute(transitUrl);
+//        }
+//    }
     private void drawItineraryPaths(int dayIndex) {
 
         if (dailyPlans == null || dailyPlans.isEmpty() || dailyPlans.get(dayIndex).isEmpty()) return;
@@ -134,6 +163,11 @@ public class InternalMapActivity extends FragmentActivity implements OnMapReadyC
             String transitUrl = getDirectionsUrl(origin, destination, "transit");
             new FetchURL(publicTransportDirectionsParser, dayIndex).execute(transitUrl);
         }
+
+        // Add a marker for the last attraction if it hasn't been added yet
+        Attraction lastAttraction = dayPlan.get(dayPlan.size() - 1);
+        LatLng lastPosition = new LatLng(lastAttraction.getLongitude(), lastAttraction.getLatitude());
+        mMap.addMarker(new MarkerOptions().position(lastPosition).title(lastAttraction.getName()));
     }
 
     private String getDirectionsUrl(Attraction origin, Attraction destination, String mode) {

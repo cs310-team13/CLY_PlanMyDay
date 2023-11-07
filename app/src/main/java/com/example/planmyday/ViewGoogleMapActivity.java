@@ -14,6 +14,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,20 @@ public class ViewGoogleMapActivity extends FragmentActivity implements OnMapRead
         drawItineraryPaths();
     }
 
+//    private void drawItineraryPaths() {
+//        if (dailyPlans == null) return;
+//
+//        for (int dayIndex = 0; dayIndex < dailyPlans.size(); dayIndex++) {
+//            List<Attraction> dayPlan = dailyPlans.get(dayIndex);
+//            for (int i = 0; i < dayPlan.size() - 1; i++) {
+//                Attraction origin = dayPlan.get(i);
+//                Attraction destination = dayPlan.get(i + 1);
+//                String url = getDirectionsUrl(origin, destination);
+//                new FetchURL(directionsParser, dayIndex).execute(url); // Use the DirectionsParser here
+//            }
+//        }
+//    }
+
     private void drawItineraryPaths() {
         if (dailyPlans == null) return;
 
@@ -72,9 +87,19 @@ public class ViewGoogleMapActivity extends FragmentActivity implements OnMapRead
             for (int i = 0; i < dayPlan.size() - 1; i++) {
                 Attraction origin = dayPlan.get(i);
                 Attraction destination = dayPlan.get(i + 1);
+
+                // draw a marker for origin
+                LatLng originLatLng = new LatLng(origin.getLongitude(), origin.getLatitude());
+                mMap.addMarker(new MarkerOptions().position(originLatLng).title(origin.getName()));
+
                 String url = getDirectionsUrl(origin, destination);
-                new FetchURL(directionsParser, dayIndex).execute(url); // Use the DirectionsParser here
+                new FetchURL(directionsParser, dayIndex).execute(url);
             }
+
+            // draw a marker for destination
+            Attraction lastAttraction = dayPlan.get(dayPlan.size() - 1);
+            LatLng lastAttractionLatLng = new LatLng(lastAttraction.getLongitude(), lastAttraction.getLatitude());
+            mMap.addMarker(new MarkerOptions().position(lastAttractionLatLng).title(lastAttraction.getName()));
         }
     }
 
