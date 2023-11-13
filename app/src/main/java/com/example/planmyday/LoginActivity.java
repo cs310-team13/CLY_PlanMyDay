@@ -24,7 +24,6 @@ public class LoginActivity extends Activity {
 
     // Firebase Authentication
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
