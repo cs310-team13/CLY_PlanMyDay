@@ -21,7 +21,7 @@ public class SelectionTest {
     public IntentsTestRule<LosAngelesActivity> activityRule = new IntentsTestRule<>(LosAngelesActivity.class);
 
     @Test
-    public void testInvalidSelection() throws InterruptedException {
+    public void testInvalidSelection() {
         onView(withId(R.id.submitButton)).perform(click());
     }
 
