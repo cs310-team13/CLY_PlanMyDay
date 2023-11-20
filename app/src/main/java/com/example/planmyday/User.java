@@ -31,4 +31,6 @@ public class User {
         this.email = email;
     }
     public String getDateOfBirth() { return dateOfBirth; }
+
+    public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
 }

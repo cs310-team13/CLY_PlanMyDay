@@ -48,5 +48,11 @@ public class AttractionTest {
         assertTrue(attraction.isAtUSC());
     }
 
+    @Test
+    public void testHaversineWithInvalidCoordinates() {
+        double distance = Attraction.haversine(91, 181, 34.068921, -118.4473698);
+        assertTrue("Distance should be non-negative", distance >= 0);
+    }
+
 
 }

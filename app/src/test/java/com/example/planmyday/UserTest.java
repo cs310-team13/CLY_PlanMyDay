@@ -18,5 +18,17 @@ public class UserTest {
         assertEquals("Date of birth should match", dateOfBirth, user.getDateOfBirth());
     }
 
+    @Test
+    public void testSetters() {
+        User user = new User();
+        user.setNickname("NewNickname");
+        user.setEmail("newemail@example.com");
+        user.setDateOfBirth("02/02/1990");
+
+        assertEquals("Nickname should be updated", "NewNickname", user.getNickname());
+        assertEquals("Email should be updated", "newemail@example.com", user.getEmail());
+        assertEquals("Date of birth should be updated", "02/02/1990", user.getDateOfBirth());
+    }
+
 
 }

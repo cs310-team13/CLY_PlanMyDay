@@ -94,7 +94,11 @@ public class RegistrationActivity extends Activity {
         cancelRegistrationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                // Navigate back to the LoginActivity
+                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                // Clear the activity stack to prevent the back button from navigating back to Dashboard
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
     }
