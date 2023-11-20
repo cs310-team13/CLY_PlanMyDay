@@ -47,4 +47,6 @@ public class AttractionTest {
         assertEquals(120, attraction.getTime());
         assertTrue(attraction.isAtUSC());
     }
+
+
 }

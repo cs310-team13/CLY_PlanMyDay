@@ -17,4 +17,6 @@ public class UserTest {
         assertEquals("Email should match", email, user.getEmail());
         assertEquals("Date of birth should match", dateOfBirth, user.getDateOfBirth());
     }
+
+
 }

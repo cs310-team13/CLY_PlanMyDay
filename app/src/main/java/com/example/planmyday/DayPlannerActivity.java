@@ -83,7 +83,7 @@ public class DayPlannerActivity extends Activity {
         return time;
     }
 
-    private List<List<Attraction>> planTrip(ArrayList<Attraction> attractions, int numDays) {
+    List<List<Attraction>> planTrip(ArrayList<Attraction> attractions, int numDays) {
         List<List<Attraction>> tripPlan = new ArrayList<>();
         for (int i = 0; i < numDays; i++) {
             tripPlan.add(new ArrayList<>());
@@ -187,7 +187,7 @@ public class DayPlannerActivity extends Activity {
         daySpinner.setAdapter(adapter);
     }
 
-    private boolean isFeasibleTrip(List<List<Attraction>> dailyPlans) {
+    boolean isFeasibleTrip(List<List<Attraction>> dailyPlans) {
         for (List<Attraction> dayPlan : dailyPlans) {
             if (computeRouteTime(dayPlan) >= 8 * 60) {
                 return false;
