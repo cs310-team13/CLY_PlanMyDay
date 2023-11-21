@@ -17,10 +17,22 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.Random;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class RegistrationActivityTest {
+
+    public static String generateUniqueEmail() {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder email = new StringBuilder();
+        Random rnd = new Random();
+        for (int i = 0; i < 10; i++) {
+            email.append(characters.charAt(rnd.nextInt(characters.length())));
+        }
+        email.append(System.currentTimeMillis()).append("@test.com");
+        return email.toString();
+    }
 
     @Rule
     public IntentsTestRule<RegistrationActivity> activityRule = new IntentsTestRule<>(RegistrationActivity.class);
@@ -64,7 +76,7 @@ public class RegistrationActivityTest {
     public void testMatchedPassword() throws InterruptedException {
         onView(withId(R.id.nicknameEditText)).perform(typeText("nickname"), ViewActions.closeSoftKeyboard());
         // need to make sure this email is deleted in firebase before running this test again
-        onView(withId(R.id.emailEditText)).perform(typeText("test@test.com"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.emailEditText)).perform(typeText(generateUniqueEmail()), ViewActions.closeSoftKeyboard());
         onView(withId(R.id.passwordEditText)).perform(typeText("password"), ViewActions.closeSoftKeyboard());
         onView(withId(R.id.confirmPasswordEditText)).perform(typeText("password"), ViewActions.closeSoftKeyboard());
         onView(withId(R.id.dateOfBirthEditText)).perform((typeText("01012023")), ViewActions.closeSoftKeyboard());
@@ -78,7 +90,7 @@ public class RegistrationActivityTest {
     @Test
     public void testMisMatchedCPassword() throws InterruptedException {
         onView(withId(R.id.nicknameEditText)).perform(typeText("nickname"), ViewActions.closeSoftKeyboard());
-        onView(withId(R.id.emailEditText)).perform(typeText("test@example.com"), ViewActions.closeSoftKeyboard());
+        onView(withId(R.id.emailEditText)).perform(typeText(generateUniqueEmail()), ViewActions.closeSoftKeyboard());
         onView(withId(R.id.passwordEditText)).perform(typeText("password"), ViewActions.closeSoftKeyboard());
         onView(withId(R.id.confirmPasswordEditText)).perform(typeText("different"), ViewActions.closeSoftKeyboard());
         onView(withId(R.id.dateOfBirthEditText)).perform((typeText("01012023")), ViewActions.closeSoftKeyboard());
